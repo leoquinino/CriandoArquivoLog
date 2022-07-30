@@ -34,7 +34,7 @@ namespace AppConfigurationManager
 
             for (var iConta = 0; iConta <= richTextBox1.Lines.Count() - 1; iConta++)
             {
-                Mensagem.Append(richTextBox1.Lines[iConta].ToString() + Environment.NewLine);
+                Mensagem.AppendLine(richTextBox1.Lines[iConta].ToString() );
             }
 
             //MessageBox.Show(Mensagem.ToString(), " TEXTO ", MessageBoxButtons.OK);

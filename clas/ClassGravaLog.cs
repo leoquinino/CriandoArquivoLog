@@ -8,9 +8,11 @@ public class GravaLog
     public void grava(string Mensagem, string path_log)
     {
         String data = DateTime.Now.ToString("yyyy-MM-dd");
-        String hora = DateTime.Now.ToString("hh-mm-ss");
+        String hora = DateTime.Now.ToString("hh");
+        String minutos = DateTime.Now.ToString("mm");
+        String segundos = DateTime.Now.ToString("ss");
         String computador = Dns.GetHostName();
-        String nomeLog = path_log + data + hora + ".log";
+        String nomeLog = path_log + data + ".log";
 
         if (!Directory.Exists(path_log))
         {
@@ -21,7 +23,7 @@ public class GravaLog
         {
             using (StreamWriter outputFile = new StreamWriter(nomeLog, true))
             {
-                outputFile.WriteLine(data + " " + hora + " (" + computador + ")" + Environment.NewLine + Mensagem);
+                outputFile.WriteLine(data + " " + hora +":"+ minutos +":"+ segundos + " (" + computador + ")" + Environment.NewLine + Mensagem);
             }
         }
     }
